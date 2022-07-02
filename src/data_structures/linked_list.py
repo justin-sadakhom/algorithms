@@ -53,3 +53,21 @@ class LinkedList:
 
         prev.next = _Node(value)
         prev.next.next = curr
+
+    def delete(self, pos: int) -> None:
+        if pos < 0 or pos >= self.length:
+            return
+        if pos == 0:
+            self.head = self.head.next
+            return
+
+        curr = self.head
+        prev = None
+        count = 0
+
+        while count < pos:
+            prev = curr
+            curr = curr.next
+            count += 1
+
+        prev.next = curr.next

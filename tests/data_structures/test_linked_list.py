@@ -13,13 +13,13 @@ class TestInit:
         assert lst.head is None
         assert lst.length == 0
 
-    def test_one_element(self):
+    def test_one_element_list(self):
         lst = LinkedList([1])
         assert lst.head.value == 1
         assert lst.head.next is None
         assert lst.length == 1
 
-    def test_two_elements(self):
+    def test_two_element_list(self):
         lst = LinkedList([1, 2])
         assert lst.head.value == 1
         assert lst.head.next.value == 2
@@ -32,11 +32,11 @@ class TestValues:
         lst = empty_list
         assert lst.values() == []
 
-    def test_one_element(self):
+    def test_one_element_list(self):
         lst = LinkedList([1])
         assert lst.values() == [1]
 
-    def test_two_elements(self):
+    def test_two_element_list(self):
         lst = LinkedList([1, 2])
         assert lst.values() == [1, 2]
 
@@ -71,3 +71,35 @@ class TestInsert:
         lst = LinkedList([1, 3])
         lst.insert(2, 1)
         assert lst.values() == [1, 2, 3]
+
+
+class TestDelete:
+    def test_empty_list(self, empty_list):
+        lst = empty_list
+        lst.delete(0)
+        assert lst.values() == []
+
+    def test_negative_pos(self):
+        lst = LinkedList([1])
+        lst.delete(-1)
+        assert lst.values() == [1]
+
+    def test_lengthy_pos(self):
+        lst = LinkedList([1])
+        lst.delete(1)
+        assert lst.values() == [1]
+
+    def test_one_element_list(self):
+        lst = LinkedList([1])
+        lst.delete(0)
+        assert lst.values() == []
+
+    def test_two_element_list_head(self):
+        lst = LinkedList([1, 2])
+        lst.delete(0)
+        assert lst.values() == [2]
+
+    def test_two_element_list_tail(self):
+        lst = LinkedList([1, 2])
+        lst.delete(1)
+        assert lst.values() == [1]
