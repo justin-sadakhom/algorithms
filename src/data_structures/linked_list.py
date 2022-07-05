@@ -2,7 +2,6 @@ from typing import List
 
 
 class _Node:
-    value = None
     next = None
 
     def __init__(self, value: int) -> None:
