@@ -41,6 +41,22 @@ class TestValues:
         assert lst.values() == [1, 2]
 
 
+class TestAccess:
+    def test_negative_pos(self):
+        lst = LinkedList([1, 2, 3])
+        assert lst.access(-1) is None
+
+    def test_lengthy_pos(self):
+        lst = LinkedList([1, 2, 3])
+        assert lst.access(3) is None
+
+    def test_index_in_range(self):
+        lst = LinkedList([1, 2, 3])
+        assert lst.access(0) == 1
+        assert lst.access(1) == 2
+        assert lst.access(2) == 3
+
+
 class TestInsert:
     def test_negative_pos(self, empty_list):
         lst = empty_list

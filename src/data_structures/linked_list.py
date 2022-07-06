@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 
 class _Node:
@@ -31,6 +31,19 @@ class LinkedList:
             curr = curr.next
 
         return result
+
+    def access(self, pos: int) -> Optional[int]:
+        if pos < 0 or pos >= self.length:
+            return None
+
+        count = 0
+        curr = self.head
+
+        while count < pos:
+            curr = curr.next
+            count += 1
+
+        return curr.value
 
     def insert(self, value: int, pos: int) -> None:
         if pos < 0 or pos > self.length:
