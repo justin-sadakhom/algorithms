@@ -32,23 +32,23 @@ class LinkedList:
 
         return result
 
-    def access(self, pos: int) -> Optional[int]:
-        if pos < 0 or pos >= self.length:
+    def access(self, index: int) -> Optional[int]:
+        if index < 0 or index >= self.length:
             return None
 
         count = 0
         curr = self.head
 
-        while count < pos:
+        while count < index:
             curr = curr.next
             count += 1
 
         return curr.value
 
-    def insert(self, value: int, pos: int) -> None:
-        if pos < 0 or pos > self.length:
+    def insert(self, value: int, index: int) -> None:
+        if index < 0 or index > self.length:
             return
-        if pos == 0:
+        if index == 0:
             curr = _Node(value)
             curr.next = self.head
             self.head = curr
@@ -58,7 +58,7 @@ class LinkedList:
         prev = None
         count = 0
 
-        while count < pos:
+        while count < index:
             prev = curr
             curr = curr.next
             count += 1
@@ -66,10 +66,10 @@ class LinkedList:
         prev.next = _Node(value)
         prev.next.next = curr
 
-    def delete(self, pos: int) -> None:
-        if pos < 0 or pos >= self.length:
+    def delete(self, index: int) -> None:
+        if index < 0 or index >= self.length:
             return
-        if pos == 0:
+        if index == 0:
             self.head = self.head.next
             return
 
@@ -77,7 +77,7 @@ class LinkedList:
         prev = None
         count = 0
 
-        while count < pos:
+        while count < index:
             prev = curr
             curr = curr.next
             count += 1

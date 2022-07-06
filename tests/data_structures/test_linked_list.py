@@ -42,11 +42,11 @@ class TestValues:
 
 
 class TestAccess:
-    def test_negative_pos(self):
+    def test_negative_index(self):
         lst = LinkedList([1, 2, 3])
         assert lst.access(-1) is None
 
-    def test_lengthy_pos(self):
+    def test_lengthy_index(self):
         lst = LinkedList([1, 2, 3])
         assert lst.access(3) is None
 
@@ -58,12 +58,12 @@ class TestAccess:
 
 
 class TestInsert:
-    def test_negative_pos(self, empty_list):
+    def test_negative_index(self, empty_list):
         lst = empty_list
         lst.insert(0, -1)
         assert lst.values() == []
 
-    def test_lengthy_pos(self, empty_list):
+    def test_lengthy_index(self, empty_list):
         lst = empty_list
         lst.insert(0, 1)
         assert lst.values() == []
@@ -95,12 +95,12 @@ class TestDelete:
         lst.delete(0)
         assert lst.values() == []
 
-    def test_negative_pos(self):
+    def test_negative_index(self):
         lst = LinkedList([1])
         lst.delete(-1)
         assert lst.values() == [1]
 
-    def test_lengthy_pos(self):
+    def test_lengthy_index(self):
         lst = LinkedList([1])
         lst.delete(1)
         assert lst.values() == [1]
