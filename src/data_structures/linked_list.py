@@ -7,6 +7,9 @@ class _Node:
     def __init__(self, value: int) -> None:
         self.value = value
 
+    def __eq__(self, other) -> bool:
+        return self.value == other.value and self.next == other.next
+
 
 class LinkedList:
     head = None
@@ -21,6 +24,9 @@ class LinkedList:
             for i in range(1, len(values)):
                 curr.next = _Node(values[i])
                 curr = curr.next
+
+    def __eq__(self, other) -> bool:
+        return self.head == other.head and self.length == other.length
 
     def values(self) -> List[int]:
         result = []
@@ -52,6 +58,7 @@ class LinkedList:
             curr = _Node(value)
             curr.next = self.head
             self.head = curr
+            self.length += 1
             return
 
         curr = self.head
@@ -65,12 +72,14 @@ class LinkedList:
 
         prev.next = _Node(value)
         prev.next.next = curr
+        self.length += 1
 
     def delete(self, index: int) -> None:
         if index < 0 or index >= self.length:
             return
         if index == 0:
             self.head = self.head.next
+            self.length -= 1
             return
 
         curr = self.head
@@ -83,3 +92,4 @@ class LinkedList:
             count += 1
 
         prev.next = curr.next
+        self.length -= 1

@@ -62,31 +62,37 @@ class TestInsert:
         lst = empty_list
         lst.insert(0, -1)
         assert lst.values() == []
+        assert lst.length == 0
 
     def test_lengthy_index(self, empty_list):
         lst = empty_list
         lst.insert(0, 1)
         assert lst.values() == []
+        assert lst.length == 0
 
     def test_empty_list(self, empty_list):
         lst = empty_list
         lst.insert(0, 0)
         assert lst.values() == [0]
+        assert lst.length == 1
 
     def test_insert_head(self):
         lst = LinkedList([1])
         lst.insert(0, 0)
         assert lst.values() == [0, 1]
+        assert lst.length == 2
 
     def test_insert_tail(self):
         lst = LinkedList([1])
         lst.insert(2, 1)
         assert lst.values() == [1, 2]
+        assert lst.length == 2
 
     def test_insert_middle(self):
         lst = LinkedList([1, 3])
         lst.insert(2, 1)
         assert lst.values() == [1, 2, 3]
+        assert lst.length == 3
 
 
 class TestDelete:
