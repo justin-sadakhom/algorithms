@@ -5,6 +5,9 @@ class Stack:
     def __init__(self) -> None:
         self._values = []
 
+    def __len__(self) -> int:
+        return len(self._values)
+
     def peek(self) -> Optional[int]:
         if len(self._values) == 0:
             return None
@@ -19,3 +22,6 @@ class Stack:
             return None
 
         return self._values.pop()
+
+    def is_empty(self) -> bool:
+        return len(self) == 0
